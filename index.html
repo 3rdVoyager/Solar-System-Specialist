@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual ID Master</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-shell">
+        <aside class="sidebar" aria-label="Quiz settings">
+            <div class="brand">
+                <span class="brand-mark">ID</span>
+                <div>
+                    <h1>Visual ID Master</h1>
+                </div>
+            </div>
+
+            <button id="themeToggle" class="theme-toggle" type="button">
+                <span id="themeToggleText">Dark Mode</span>
+            </button>
+
+            <div id="setup-view" class="settings-panel">
+                <div class="input-group">
+                    <label for="modeToggle">Study Mode</label>
+                    <select id="modeToggle">
+                        <option value="multiple">Multiple Choice</option>
+                        <option value="typing">Speed Typing</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="optionCount">Choices</label>
+                    <input type="number" id="optionCount" value="4" min="2" max="8">
+                </div>
+
+                <button id="startBtn" class="primary-btn">Start Quiz</button>
+                <button id="resetBtn" class="secondary-btn">Reset Stats</button>
+            </div>
+
+            </aside>
+
+        <main class="main-content">
+            <section id="empty-state" class="empty-state">
+                <div class="empty-state-inner">
+                    <h2>Solar System Quiz Ready</h2>
+                    <p>Click "Start Quiz" to begin identifying objects.</p>
+                </div>
+            </section>
+
+            <section id="quiz-view" class="quiz-view" style="display: none;">
+                <div id="image-display">
+                    <img id="current-img" src="" alt="Quiz prompt">
+                </div>
+                <div id="feedback" aria-live="polite"></div>
+                <div class="button-grid" id="choice-area"></div>
+                <div class="typing-area" id="typing-area">
+                    <input type="text" id="typeInput" placeholder="Type answer..." autocomplete="off">
+                    <button id="submitBtn">Submit</button>
+                </div>
+            </section>
+        </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
