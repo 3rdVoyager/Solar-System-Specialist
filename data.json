@@ -1,1 +1,62 @@
-[{"name": "Jupiter", "image": "images/Jupiter_1.webp"}, {"name": "Jupiter", "image": "images/Jupiter_2.webp"}, {"name": "Jupiter", "image": "images/Jupiter_3.webp"}, {"name": "Jupiter", "image": "images/Jupiter_4.webp"}, {"name": "Jupiter", "image": "images/Jupiter_5.webp"}, {"name": "Jupiter", "image": "images/Jupiter_UV.webp"}, {"name": "Jupiter", "image": "images/Jupiter_Visible.webp"}, {"name": "Mercury", "image": "images/Mercury_1.webp"}, {"name": "Mercury", "image": "images/Mercury_2.webp"}, {"name": "Mercury", "image": "images/Mercury_3.webp"}, {"name": "Mercury", "image": "images/Mercury_4.webp"}, {"name": "Mercury", "image": "images/Mercury_6.webp"}, {"name": "Saturn", "image": "images/Saturn_1.webp"}, {"name": "Saturn", "image": "images/Saturn_2.webp"}, {"name": "Saturn", "image": "images/Saturn_3.webp"}]
+[
+    {
+        "name": "Jupiter",
+        "image": "images/Jupiter_1.webp"
+    },
+    {
+        "name": "Jupiter",
+        "image": "images/Jupiter_2.webp"
+    },
+    {
+        "name": "Jupiter",
+        "image": "images/Jupiter_3.webp"
+    },
+    {
+        "name": "Jupiter",
+        "image": "images/Jupiter_4.webp"
+    },
+    {
+        "name": "Jupiter",
+        "image": "images/Jupiter_5.webp"
+    },
+    {
+        "name": "Jupiter",
+        "image": "images/Jupiter_UV.webp"
+    },
+    {
+        "name": "Jupiter",
+        "image": "images/Jupiter_Visible.webp"
+    },
+    {
+        "name": "Mercury",
+        "image": "images/Mercury_1.webp"
+    },
+    {
+        "name": "Mercury",
+        "image": "images/Mercury_2.webp"
+    },
+    {
+        "name": "Mercury",
+        "image": "images/Mercury_3.webp"
+    },
+    {
+        "name": "Mercury",
+        "image": "images/Mercury_4.webp"
+    },
+    {
+        "name": "Mercury",
+        "image": "images/Mercury_6.webp"
+    },
+    {
+        "name": "Saturn",
+        "image": "images/Saturn_1.webp"
+    },
+    {
+        "name": "Saturn",
+        "image": "images/Saturn_2.webp"
+    },
+    {
+        "name": "Saturn",
+        "image": "images/Saturn_3.webp"
+    }
+]

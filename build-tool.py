@@ -43,4 +43,4 @@ for filename in os.listdir(input_folder):
 
 # Save the quiz_data to a JSON file
 with open('data.json', 'w') as f:
-    json.dump(quiz_data, f)
+    json.dump(quiz_data, f, indent=4)
