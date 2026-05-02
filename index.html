@@ -3,63 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visual ID Master</title>
+    <title>Solar System Specialist</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="app-shell">
-        <aside class="sidebar" aria-label="Quiz settings">
+        <aside class="sidebar" aria-label="Page tabs">
             <div class="brand">
-                <span class="brand-mark">ID</span>
+                <span class="brand-mark">SSS</span>
                 <div>
-                    <h1>Visual ID Master</h1>
+                    <h1>Solar System Specialist</h1>
                 </div>
             </div>
 
-            <button id="themeToggle" class="theme-toggle" type="button">
-                <span id="themeToggleText">Dark Mode</span>
-            </button>
-
-            <div id="setup-view" class="settings-panel">
-                <div class="input-group">
-                    <label for="modeToggle">Study Mode</label>
-                    <select id="modeToggle">
-                        <option value="multiple">Multiple Choice</option>
-                        <option value="typing">Speed Typing</option>
-                    </select>
-                </div>
-
-                <div class="input-group">
-                    <label for="optionCount">Choices</label>
-                    <input type="number" id="optionCount" value="4" min="2" max="8">
-                </div>
-
-                <button id="startBtn" class="primary-btn">Start Quiz</button>
-                <button id="resetBtn" class="secondary-btn">Reset Stats</button>
-            </div>
-
-            </aside>
+            <nav class="page-tabs" aria-label="Pages">
+                <button class="page-tab active" type="button" aria-current="page">Image ID</button>
+            </nav>
+        </aside>
 
         <main class="main-content">
-            <section id="empty-state" class="empty-state">
-                <div class="empty-state-inner">
-                    <h2>Solar System Quiz Ready</h2>
-                    <p>Click "Start Quiz" to begin identifying objects.</p>
-                </div>
-            </section>
+            <section class="question-window" aria-label="Image identification question">
+                <div class="question-toolbar">
+                    <div id="setup-view" class="settings-panel">
+                        <div class="input-group">
+                            <label for="modeToggle">Study Mode</label>
+                            <select id="modeToggle">
+                                <option value="multiple">Multiple Choice</option>
+                                <option value="typing">Speed Typing</option>
+                            </select>
+                        </div>
 
-            <section id="quiz-view" class="quiz-view" style="display: none;">
-                <div id="image-display">
-                    <img id="current-img" src="" alt="Quiz prompt">
+                        <div class="input-group choices-input">
+                            <label for="optionCount">Choices</label>
+                            <input type="number" id="optionCount" value="4" min="2" max="8">
+                        </div>
+
+                        <button id="startBtn" class="primary-action">Start Quiz</button>
+                        <button id="resetBtn" class="secondary-action">Reset Stats</button>
+                        <button id="themeToggle" class="theme-toggle" type="button">
+                            <span id="themeToggleText">Dark Mode</span>
+                        </button>
+                    </div>
+
+                    <div class="stats-panel" aria-live="polite">
+                        <div class="stat-row">
+                            <div class="stat-label">Accuracy</div>
+                            <div class="stat-value" id="accuracyStat">0%</div>
+                        </div>
+
+                        <div class="stat-row">
+                            <div class="stat-label">Attempts</div>
+                            <div class="stat-value" id="attemptsStat">0</div>
+                        </div>
+
+                        <div class="stat-row">
+                            <div class="stat-label">Correct</div>
+                            <div class="stat-value" id="correctStat">0</div>
+                        </div>
+
+                        <div class="stat-row">
+                            <div class="stat-label">Streak</div>
+                            <div class="stat-value" id="streakStat">0</div>
+                        </div>
+
+                        <div class="readiness">
+                            <div class="readiness-info">
+                                <div class="readiness-label" id="readinessLabel">Warm-up phase.</div>
+                                <div class="readiness-score" id="readinessScore">0</div>
+                            </div>
+                            <div class="readiness-bar" aria-hidden="true">
+                                <div id="readinessFill" style="width:0%"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div id="feedback" aria-live="polite"></div>
-                <div class="button-grid" id="choice-area"></div>
-                <div class="typing-area" id="typing-area">
-                    <input type="text" id="typeInput" placeholder="Type answer..." autocomplete="off">
-                    <button id="submitBtn">Submit</button>
-                </div>
+
+                <section id="empty-state" class="empty-state">
+                    <div class="empty-state-inner">
+                        <h2>Solar System Quiz Ready</h2>
+                        <p>Click "Start Quiz" to begin identifying objects.</p>
+                    </div>
+                </section>
+
+                <section id="quiz-view" class="quiz-view" style="display: none;">
+                    <div id="image-display">
+                        <img id="current-img" src="" alt="Quiz prompt">
+                    </div>
+                    <div id="feedback" aria-live="polite"></div>
+                    <div class="button-grid" id="choice-area"></div>
+                    <div class="typing-area" id="typing-area">
+                        <input type="text" id="typeInput" placeholder="Type answer..." autocomplete="off">
+                        <button id="submitBtn">Submit</button>
+                    </div>
+                </section>
             </section>
         </main>
+    </div>
 
     <script src="app.js"></script>
 </body>

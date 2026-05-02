@@ -50,9 +50,7 @@ startBtn.addEventListener('click', () => {
 loadData();
 
 resetBtn.addEventListener('click', () => {
-    // Clear loaded data and reset UI to initial state
-    quizData = [];
-    uniqueAnswers = [];
+    // Reset progress and return the quiz surface to its initial state.
     currentQuestion = null;
     isAnswerLocked = false;
 
@@ -221,6 +219,18 @@ function setTheme(theme) {
     const isDark = theme === 'dark';
     themeToggle.setAttribute('aria-pressed', String(isDark));
     themeToggleText.innerText = isDark ? 'Light Mode' : 'Dark Mode';
+}
+
+// Initialize theme from saved preference or system setting
+const _savedTheme = localStorage.getItem('visualIdTheme') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+setTheme(_savedTheme);
+
+// Wire up toggle button
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        const next = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
+        setTheme(next);
+    });
 }
 
 updateStatsDisplay();

@@ -82,14 +82,14 @@ button:disabled {
 
 .app-shell {
     display: grid;
-    grid-template-columns: minmax(260px, 340px) minmax(0, 1fr);
+    grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
     min-height: 100vh;
 }
 
 .sidebar {
     display: flex;
     flex-direction: column;
-    gap: 28px;
+    gap: 34px;
     min-height: 100vh;
     padding: 28px;
     background: var(--panel);
@@ -97,6 +97,28 @@ button:disabled {
     box-shadow: 12px 0 40px rgba(20, 38, 43, 0.08);
     position: sticky;
     top: 0;
+}
+
+.page-tabs {
+    display: grid;
+    gap: 8px;
+}
+
+.page-tab {
+    width: 100%;
+    min-height: 46px;
+    padding: 10px 12px;
+    background: var(--accent);
+    color: #fff;
+    border: 1px solid var(--accent);
+    text-align: left;
+    font-weight: 850;
+    box-shadow: 0 8px 22px rgba(20, 38, 43, 0.08);
+}
+
+.page-tab.active {
+    background: var(--accent);
+    color: #fff;
 }
 
 .brand {
@@ -120,7 +142,7 @@ button:disabled {
 .theme-toggle {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     gap: 12px;
     width: 100%;
     min-height: 44px;
@@ -168,9 +190,10 @@ body[data-theme="dark"] .theme-toggle-icon::after {
 }
 
 .settings-panel {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
+    display: grid;
+    grid-template-columns: minmax(180px, 1.1fr) minmax(96px, 0.45fr) repeat(3, minmax(118px, 0.55fr));
+    gap: 12px;
+    align-items: end;
 }
 
 .getting-started {
@@ -200,11 +223,10 @@ body[data-theme="dark"] .theme-toggle-icon::after {
 }
 
 .stats-panel {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    padding-top: 22px;
-    border-top: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: repeat(4, minmax(92px, 1fr)) minmax(220px, 1.45fr);
+    gap: 10px;
+    align-items: stretch;
 }
 
 .stats-header {
@@ -226,8 +248,9 @@ body[data-theme="dark"] .theme-toggle-icon::after {
 
 #readinessScore {
     color: var(--accent-dark);
-    font-size: 2.1rem;
-    line-height: 0.95;
+    font-size: 1.35rem;
+    font-weight: 900;
+    line-height: 1;
 }
 
 .readiness-meter {
@@ -278,11 +301,61 @@ body[data-theme="dark"] .theme-toggle-icon::after {
 }
 
 .readiness-label {
-    min-height: 38px;
     margin: 0;
     color: var(--muted);
-    font-size: 0.9rem;
+    font-size: 0.82rem;
     line-height: 1.4;
+}
+
+.stat-row,
+.readiness {
+    min-height: 68px;
+    padding: 12px;
+    border: 1px solid var(--line);
+    border-radius: 7px;
+    background: var(--panel-strong);
+}
+
+.stat-label {
+    color: var(--muted);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.stat-value {
+    margin-top: 7px;
+    color: var(--ink);
+    font-size: 1.35rem;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.readiness {
+    display: grid;
+    gap: 10px;
+}
+
+.readiness-info {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.readiness-bar {
+    height: 8px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: var(--meter-track);
+}
+
+.readiness-bar div {
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, var(--danger), #d29a28 45%, var(--accent));
+    transition: width 240ms ease;
 }
 
 .input-group {
@@ -377,15 +450,30 @@ select:focus {
     align-items: center;
 }
 
-.empty-state,
-.quiz-view {
+.question-window {
     width: min(100%, 980px);
     margin: 0 auto;
+    padding: 18px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: color-mix(in srgb, var(--panel) 78%, transparent);
+    box-shadow: var(--shadow);
+}
+
+.question-toolbar {
+    display: grid;
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+.empty-state,
+.quiz-view {
+    width: 100%;
 }
 
 .empty-state {
     display: grid;
-    min-height: calc(100vh - 68px);
+    min-height: min(54vh, 520px);
     place-items: center;
     border: 1px dashed rgba(32, 33, 36, 0.22);
     border-radius: 8px;
@@ -439,7 +527,6 @@ select:focus {
     background: var(--image-bg);
     border: 1px solid rgba(0, 0, 0, 0.18);
     border-radius: 8px;
-    box-shadow: var(--shadow);
 }
 
 #current-img {
@@ -517,8 +604,27 @@ select:focus {
         border-bottom: 1px solid var(--line);
     }
 
+    .page-tabs {
+        grid-template-columns: minmax(160px, max-content);
+    }
+
     .main-content {
         padding: 22px;
+    }
+
+    .question-window {
+        padding: 14px;
+    }
+
+    .settings-panel,
+    .stats-panel {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .settings-panel .input-group:first-child,
+    .settings-panel button,
+    .readiness {
+        grid-column: 1 / -1;
     }
 
     .empty-state {
